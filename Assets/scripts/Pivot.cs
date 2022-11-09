@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pivot : MonoBehaviour
 {
     public GameObject myPlayer;
+    public GameObject ball;
 
     private void FixedUpdate()
     {
@@ -14,6 +15,7 @@ public class Pivot : MonoBehaviour
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
+        ball.transform.localPosition = new Vector3(4.4f + Mathf.Abs(Mathf.Sin(rotationZ*Mathf.Deg2Rad)),0,0);
     }
    
 }
