@@ -24,7 +24,7 @@ public class Player_Movement : MonoBehaviour
     
     private bool alive;
     private bool jump = false;
-    private bool hasBall;
+    public bool hasBall;
     
     void Start()
     {
@@ -42,7 +42,8 @@ public class Player_Movement : MonoBehaviour
         }
         if(Input.GetButtonDown("Fire1") && hasBall == true)
         {
-            hasBall = true;
+            hasBall = false;
+            launchOffset.gameObject.SetActive(false);
             Shoot();
         }
     }
@@ -67,6 +68,11 @@ public class Player_Movement : MonoBehaviour
         // rbBall.AddForce(launchOffset.right * projectileSpeed, ForceMode2D.Impulse);
         GameObject newBall = Instantiate(ballPrefab, launchOffset.position, launchOffset.rotation);
         newBall.GetComponent<Rigidbody2D>().AddForce(launchOffset.right * projectileSpeed, ForceMode2D.Impulse);
+    }
+
+    public void PickupBall(){
+        hasBall = true;
+        launchOffset.gameObject.SetActive(true);
     }
     
     void OnTriggerEnter2D(Collider2D other)
