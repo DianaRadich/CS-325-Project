@@ -8,6 +8,8 @@ public class ProjectileBehaviour : MonoBehaviour
     void Update()
     {
         transform.position += transform.up * Time.deltaTime * speed;
+        //can this be replaced by just altering ball weight, gravity, and launch speed?
+        //seems like it just gives a vertical lift to the ball, kind of like a glide effect.
     }
 
     void OnCollisionEnter2D(Collision2D collision)
