@@ -17,6 +17,8 @@ public class Player_Movement : MonoBehaviour
     public ProjectileBehaviour projectile;
     public Transform launchOffset;
 
+    public GameObject ballPrefab;
+
     private Vector2 moveDirection;
     private Vector2 mousePos;
     
@@ -60,9 +62,11 @@ public class Player_Movement : MonoBehaviour
     }
     void Shoot()
     {
-        ProjectileBehaviour ball = Instantiate(projectile, launchOffset.position, launchOffset.rotation);
-        Rigidbody2D rbBall = ball.GetComponent<Rigidbody2D>();
-        rbBall.AddForce(launchOffset.right * projectileSpeed, ForceMode2D.Impulse);
+        // ProjectileBehaviour ball = Instantiate(projectile, launchOffset.position, launchOffset.rotation);
+        // Rigidbody2D rbBall = ball.GetComponent<Rigidbody2D>();
+        // rbBall.AddForce(launchOffset.right * projectileSpeed, ForceMode2D.Impulse);
+        GameObject newBall = Instantiate(ballPrefab, launchOffset.position, launchOffset.rotation);
+        newBall.GetComponent<Rigidbody2D>().AddForce(launchOffset.right * projectileSpeed, ForceMode2D.Impulse);
     }
     
     void OnTriggerEnter2D(Collider2D other)
