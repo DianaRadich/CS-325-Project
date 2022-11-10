@@ -31,7 +31,7 @@ public class ProjectileBehaviour : MonoBehaviour
             collision.collider.GetComponent<PowerupManager>().GetPowerUp(powerup);
             Destroy(gameObject);
         }
-        if(collision.collider.CompareTag("Enemy"))
+        if(collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Flyer") )
         {
             Destroy(collision.collider.gameObject);
         }
