@@ -75,6 +75,15 @@ public class Player_Movement : MonoBehaviour
         launchOffset.gameObject.SetActive(true);
     }
     
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.CompareTag("Enemy"))
+        {
+            FindObjectOfType<WinOrLose>().LoseLevel();
+        }
+    }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.name == "Enemy")
