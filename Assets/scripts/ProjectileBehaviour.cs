@@ -20,15 +20,20 @@ public class ProjectileBehaviour : MonoBehaviour
         if(PS != null){
             powerup = PS.powerup;
         }
-        if(collision.collider.gameObject.name == "Goals")
+        //if(collision.collider.gameObject.name == "Goals")
+        if(collision.collider.CompareTag("Goal"))
         {
             Destroy(gameObject);
             Destroy(collision.collider.gameObject);
-            FindObjectOfType<WinLose>().Win();
+            FindObjectOfType<WinOrLose>().WinLevel();
         }
         if(collision.collider.CompareTag("Player")){
             collision.collider.GetComponent<PowerupManager>().GetPowerUp(powerup);
             Destroy(gameObject);
+        }
+        if(collision.collider.CompareTag("Enemy"))
+        {
+            Destroy(collision.collider.gameObject);
         }
     }
     
@@ -41,8 +46,13 @@ public class ProjectileBehaviour : MonoBehaviour
         if(hitInfo.gameObject.name == "Enemy")
         {
             Destroy(gameObject);
-            Destroy(hitInfo.gameObject);
+            Destroy(hitInfo.gameObject, 0.1f);
             FindObjectOfType<WinLose>().Win();
+        }
+        if(hitInfo.CompareTag("BlackHole") || hitInfo.CompareTag("Spike"))
+        {
+            Destroy(gameObject);
+            FindObjectOfType<WinOrLose>().LoseLevel();
         }
         if(hitInfo.CompareTag("Player")){
             hitInfo.GetComponent<PowerupManager>().GetPowerUp(powerup);

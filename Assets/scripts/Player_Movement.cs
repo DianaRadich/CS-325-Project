@@ -92,7 +92,11 @@ public class Player_Movement : MonoBehaviour
             hasBall = true;
             Debug.Log("KILL THE CAT!");
         }
+        if(other.CompareTag("Zapper") || other.CompareTag("Spike"))
+        {
+            Destroy(gameObject);
+            FindObjectOfType<WinOrLose>().LoseLevel();
+        }
     }
-
 
 }
