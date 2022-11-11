@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 8497784122488493033}
   - component: {fileID: 8497784122488493030}
   m_Layer: 0
-  m_Name: Crawler
+  m_Name: red
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4949ec9d9a224fc45962a78f5fa91f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerup: 3
+  powerup: 4
 --- !u!1 &8497784122911638500
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d7ad39c4a31f2f64ca09b5c2c5af69b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ca1fd5327dba6d41816c66e0a30e1e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

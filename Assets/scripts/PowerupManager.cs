@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using TMPro;
 
 public class PowerupManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PowerupManager : MonoBehaviour
     private Vector2 vel;
     public Animator animator;
     public ShieldSpawner shieldSpawner;
+    public TMP_Text Power;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,28 @@ public class PowerupManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(powerup == Powerups.None)
+        {
+            Power.SetText("Powerup: None");
+        }
+        if(powerup == Powerups.Dash)
+        {
+            Power.SetText("Powerup: Dash");
+        }
+        if(powerup == Powerups.Jump)
+        {
+            Power.SetText("Powerup: Jump");
+        }
+        if(powerup == Powerups.Shield)
+        {
+            Power.SetText("Powerup: Shield");
+        }
+        if(powerup == Powerups.Recall)
+        {
+            Power.SetText("Powerup: Recall");
+        }
+
+
 		if (Input.GetButtonDown("Fire3"))
 		{
 		    switch (powerup)
