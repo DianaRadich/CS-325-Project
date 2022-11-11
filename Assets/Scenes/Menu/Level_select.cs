@@ -13,7 +13,10 @@ public class Level_select : MonoBehaviour
     }
 
     // Update is called once per frame
-
+    public void loadSample() 
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
     public void OpenScene() 
     {
         SceneManager.LoadScene("Level " + level.ToString());
