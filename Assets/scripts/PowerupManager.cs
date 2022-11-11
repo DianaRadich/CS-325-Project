@@ -98,6 +98,7 @@ public class PowerupManager : MonoBehaviour
         movmentScript.PickupBall();
 
 		if(power != Powerups.None){
+            movmentScript.setPowerup(power);
             powerup = power;
         }
         

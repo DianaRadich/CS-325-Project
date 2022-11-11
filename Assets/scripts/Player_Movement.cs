@@ -16,7 +16,7 @@ public class Player_Movement : MonoBehaviour
 
     public ProjectileBehaviour projectile;
     public Transform launchOffset;
-
+    public PowerupManager.Powerups powerup;
     public GameObject ballPrefab;
     //public GameObject shield;
 
@@ -114,6 +114,11 @@ public class Player_Movement : MonoBehaviour
             Destroy(gameObject);
             FindObjectOfType<WinOrLose>().LoseLevel();
         }
+    }
+
+    public void setPowerup(PowerupManager.Powerups power) 
+    {
+        powerup = power;
     }
 
 }
