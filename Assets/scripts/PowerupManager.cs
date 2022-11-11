@@ -15,6 +15,7 @@ public class PowerupManager : MonoBehaviour
     }
     public Powerups powerup;
     public Player_Movement movmentScript;
+    public ShieldSpawner shieldSpawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,8 @@ public class PowerupManager : MonoBehaviour
 
 				    break;
 			    case Powerups.Shield:
-
+                    //movmentScript.shieldActive = true;
+                    shieldSpawner.ActivateShield();
 				    break;
 			    case Powerups.Recall:
 
@@ -45,6 +47,7 @@ public class PowerupManager : MonoBehaviour
 			    default:
 				    break;
 		    }
+            powerup = Powerups.None;
 		}
     }
 

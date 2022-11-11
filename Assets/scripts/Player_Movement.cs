@@ -18,6 +18,7 @@ public class Player_Movement : MonoBehaviour
     public Transform launchOffset;
 
     public GameObject ballPrefab;
+    //public GameObject shield;
 
     private Vector2 moveDirection;
     private Vector2 mousePos;
@@ -25,6 +26,7 @@ public class Player_Movement : MonoBehaviour
     private bool alive;
     private bool jump = false;
     public bool hasBall;
+    public bool shieldActive = false;
     
     void Start()
     {
@@ -80,28 +82,34 @@ public class Player_Movement : MonoBehaviour
     {
         if(collision.collider.CompareTag("Enemy"))
         {
-            FindObjectOfType<WinOrLose>().LoseLevel();
+            if (!shieldActive)
+            {
+                FindObjectOfType<WinOrLose>().LoseLevel();
+            }
+            
         }
     }
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.name == "Enemy")
-        {
-            alive = false;
-            animator.SetBool("dying",true);
-            moveSpeed = 0f;
-            transform.localEulerAngles = new Vector3 (0f,0f,0f);
-            Debug.Log("DEAD!");
+        // if(other.gameObject.name == "Enemy")
+        // {
+        //     alive = false;
+        //     animator.SetBool("dying",true);
+        //     moveSpeed = 0f;
+        //     transform.localEulerAngles = new Vector3 (0f,0f,0f);
+        //     Debug.Log("DEAD!");
 
-            FindObjectOfType<WinLose>().Lose();
-        }
-        else if(other.gameObject.name == "sod(Clone)")
-        {
-            hasBall = true;
-            Debug.Log("KILL THE CAT!");
-        }
-        if(other.CompareTag("Zapper") || other.CompareTag("Spike"))
+        //     FindObjectOfType<WinLose>().Lose();
+        // }
+        // else if(other.gameObject.name == "sod(Clone)")
+        // {
+        //     hasBall = true;
+        //     Debug.Log("KILL THE CAT!");
+        // }
+        //Doesnt do anything right now so its commented out
+
+        if ((!shieldActive)&&(other.CompareTag("Zapper") || other.CompareTag("Spike")))
         {
             Destroy(gameObject);
             FindObjectOfType<WinOrLose>().LoseLevel();
