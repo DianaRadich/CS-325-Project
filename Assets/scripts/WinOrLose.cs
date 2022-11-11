@@ -35,6 +35,7 @@ public class WinOrLose : MonoBehaviour
             //audioSource.PlayOneShot(fanfare);
 
             gameEnded=true;
+            SceneManager.LoadScene("Menu");
         }
     }
 
