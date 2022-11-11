@@ -16,10 +16,14 @@ public class PowerupManager : MonoBehaviour
     }
     public Powerups powerup;
     public Player_Movement movmentScript;
+
     public Rigidbody2D rb2D;
     public float jumpForce;
     public float dashDistance;
     private Vector2 vel;
+
+    public ShieldSpawner shieldSpawner;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,21 +45,29 @@ public class PowerupManager : MonoBehaviour
                     //rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
                     //rb2D.AddForce(dir*dashDistance);
                     Dash();
+                    powerup = Powerups.None;
 				    break;
 			    case Powerups.Jump:
                     rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
                     rb2D.AddForce(new Vector2(0f, jumpForce));
+                    powerup = Powerups.None;
 				    break;
 			    case Powerups.Shield:
-
+                    //movmentScript.shieldActive = true;
+                    shieldSpawner.ActivateShield();
+                    powerup = Powerups.None;
 				    break;
 			    case Powerups.Recall:
-
+                    //i dont like how it looks either but thats whats going here for now
+                    GameObject ball = GameObject.FindGameObjectsWithTag("Ball")[0]; //there should only be one
+                    GetPowerUp(ball.GetComponent<ProjectileBehaviour>().powerup);
+                    Destroy(ball);
+                    //does not set powerup because then recall wouldnt give palyer ball powerup
 				    break;
 			    default:
 				    break;
 		    }
-            powerup = Powerups.None;
+            //powerup = Powerups.None; //refer to line 65 forwhy this is commented out
 		}
     }
 

@@ -9,6 +9,9 @@ TagManager:
   - BlackHole
   - Zapper
   - Spike
+  - Flyer
+  - Undefined
+  - Ball
   layers:
   - Default
   - TransparentFX
