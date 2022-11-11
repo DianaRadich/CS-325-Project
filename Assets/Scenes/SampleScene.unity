@@ -333,6 +333,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerup: 0
   movmentScript: {fileID: 285448777}
+  rb2D: {fileID: 285448773}
+  jumpForce: 1750
+  dashDistance: 10
   shieldSpawner: {fileID: 1084035164}
 --- !u!1 &418078024
 GameObject:
