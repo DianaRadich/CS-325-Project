@@ -75,6 +75,24 @@ public class Player_Movement : MonoBehaviour
     public void PickupBall(){
         hasBall = true;
         launchOffset.gameObject.SetActive(true);
+        switch(powerup)
+        {
+            case PowerupManager.Powerups.None:
+                animator.SetBool("isPurple", true);
+                break;
+            case PowerupManager.Powerups.Jump:
+                animator.SetBool("isBlue", true);
+                break;
+            case PowerupManager.Powerups.Dash:
+                animator.SetBool("isYellow", true);
+                break;
+            case PowerupManager.Powerups.Shield:
+                animator.SetBool("isGreen", true);
+                break;
+            case PowerupManager.Powerups.Recall:
+                animator.SetBool("isRed", true);
+                break;
+        }
     }
     
     

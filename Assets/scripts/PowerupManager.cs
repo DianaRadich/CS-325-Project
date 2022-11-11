@@ -21,7 +21,7 @@ public class PowerupManager : MonoBehaviour
     public float jumpForce;
     public float dashDistance;
     private Vector2 vel;
-
+    public Animator animator;
     public ShieldSpawner shieldSpawner;
 
     // Start is called before the first frame update
@@ -46,29 +46,35 @@ public class PowerupManager : MonoBehaviour
                     //rb2D.AddForce(dir*dashDistance);
                     Dash();
                     powerup = Powerups.None;
-				    break;
+                    animator.SetBool("isYellow", false);
+                    break;
 			    case Powerups.Jump:
                     rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
                     rb2D.AddForce(new Vector2(0f, jumpForce));
                     powerup = Powerups.None;
-				    break;
+                    animator.SetBool("isBlue", false);
+                    break;
 			    case Powerups.Shield:
                     //movmentScript.shieldActive = true;
                     shieldSpawner.ActivateShield();
                     powerup = Powerups.None;
-				    break;
+                    animator.SetBool("isGreen", false);
+                    break;
 			    case Powerups.Recall:
                     //i dont like how it looks either but thats whats going here for now
                     GameObject ball = GameObject.FindGameObjectsWithTag("Ball")[0]; //there should only be one
                     GetPowerUp(ball.GetComponent<ProjectileBehaviour>().powerup);
                     Destroy(ball);
+                    animator.SetBool("isRed", false);
                     //does not set powerup because then recall wouldnt give palyer ball powerup
-				    break;
+                    break;
 			    default:
 				    break;
 		    }
+            //set ball back to purple after power use
+            animator.SetBool("isPurple", true);
             //powerup = Powerups.None; //refer to line 65 forwhy this is commented out
-		}
+        }
     }
 
     public async void Dash()
@@ -98,9 +104,32 @@ public class PowerupManager : MonoBehaviour
         movmentScript.PickupBall();
 
 		if(power != Powerups.None){
-            movmentScript.setPowerup(power);
             powerup = power;
         }
-        
+
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            animator.SetBool(parameter.name, false);
+        }
+        switch (powerup)
+        {
+            case PowerupManager.Powerups.None:
+                animator.SetBool("isPurple", true);
+                break;
+            case PowerupManager.Powerups.Jump:
+                animator.SetBool("isBlue", true);
+                break;
+            case PowerupManager.Powerups.Dash:
+                animator.SetBool("isYellow", true);
+                break;
+            case PowerupManager.Powerups.Shield:
+                animator.SetBool("isGreen", true);
+                break;
+            case PowerupManager.Powerups.Recall:
+                animator.SetBool("isRed", true);
+                break;
+        }
+
+
     }
 }
