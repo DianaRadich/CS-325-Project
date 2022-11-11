@@ -40,14 +40,18 @@ public class PowerupManager : MonoBehaviour
 			    case Powerups.Shield:
                     //movmentScript.shieldActive = true;
                     shieldSpawner.ActivateShield();
+                    powerup = Powerups.None;
 				    break;
 			    case Powerups.Recall:
-
+                    //i dont like how it looks either but thats whats going here for now
+                    GameObject ball = GameObject.FindGameObjectsWithTag("Ball")[0]; //there should only be one
+                    GetPowerUp(ball.GetComponent<ProjectileBehaviour>().powerup);
+                    Destroy(ball);
 				    break;
 			    default:
 				    break;
 		    }
-            powerup = Powerups.None;
+            
 		}
     }
 

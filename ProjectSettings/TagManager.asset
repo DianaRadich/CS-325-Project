@@ -10,6 +10,8 @@ TagManager:
   - Zapper
   - Spike
   - Flyer
+  - Undefined
+  - Ball
   layers:
   - Default
   - TransparentFX
