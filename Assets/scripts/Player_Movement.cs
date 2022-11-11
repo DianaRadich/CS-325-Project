@@ -80,7 +80,7 @@ public class Player_Movement : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.CompareTag("Enemy"))
+        if(collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Flyer") )
         {
             if (!shieldActive)
             {
