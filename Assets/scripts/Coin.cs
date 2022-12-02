@@ -16,6 +16,7 @@ public class Coin : MonoBehaviour
 
         if (coinInventory!=null)
         {
+            SoundManager.PlayCoin();
             //Debug.Log("coinInventory was NOT null!");
             //AudioSource.PlayClipAtPoint(pickup_sound, transform.position);
             coinInventory.CoinCollected();
