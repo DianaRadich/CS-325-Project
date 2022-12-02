@@ -5,6 +5,7 @@ public class ProjectileBehaviour : MonoBehaviour
 {
     public float speed = 4.7f;
     public PowerupManager.Powerups powerup = PowerupManager.Powerups.None;
+    public bool hasBall = true;
 
     // Update is called once per frame
     void Update()
@@ -16,7 +17,7 @@ public class ProjectileBehaviour : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
+        
         PowerupScript PS = collision.collider.GetComponent<PowerupScript>();
         if(PS != null){
             powerup = PS.powerup;
@@ -28,11 +29,16 @@ public class ProjectileBehaviour : MonoBehaviour
             Destroy(collision.collider.gameObject);
             FindObjectOfType<WinOrLose>().WinLevel();
         }
-        if(collision.collider.CompareTag("Player")){
-            collision.collider.GetComponent<PowerupManager>().GetPowerUp(powerup);
-            Destroy(gameObject);
+        if (collision.collider.CompareTag("Player"))
+        {
+            Player_Movement player = collision.collider.GetComponent<Player_Movement>();
+            if (!player.hasBall)
+            {
+                collision.collider.GetComponent<PowerupManager>().GetPowerUp(powerup);
+                Destroy(gameObject);
+            }
         }
-        if(collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Flyer") )
+        if(!hasBall && (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Flyer")) )
         {
             Destroy(collision.collider.gameObject);
         }
@@ -41,22 +47,29 @@ public class ProjectileBehaviour : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         PowerupScript PS = hitInfo.GetComponent<PowerupScript>();
-        if(PS != null){
-            powerup = PS.powerup;
-        }
-        if(hitInfo.gameObject.name == "Enemy")
+
+
+        if (!hasBall)
         {
-            Destroy(gameObject);
-            Destroy(hitInfo.gameObject, 0.1f);
-            FindObjectOfType<WinLose>().Win();
-        }
-        if(hitInfo.CompareTag("BlackHole") || hitInfo.CompareTag("Spike"))
-        {
-            Destroy(gameObject);
-            FindObjectOfType<WinOrLose>().LoseLevel();
-        }
-        if(hitInfo.CompareTag("Player")){
-            hitInfo.GetComponent<PowerupManager>().GetPowerUp(powerup);
+            if (PS != null)
+            {
+                powerup = PS.powerup;
+            }
+            if (hitInfo.gameObject.name == "Enemy")
+            {
+                Destroy(gameObject);
+                Destroy(hitInfo.gameObject, 0.1f);
+                FindObjectOfType<WinLose>().Win();
+            }
+            if (hitInfo.CompareTag("BlackHole") || hitInfo.CompareTag("Spike"))
+            {
+                Destroy(gameObject);
+                FindObjectOfType<WinOrLose>().LoseLevel();
+            }
+            if (hitInfo.CompareTag("Player"))
+            {
+                hitInfo.GetComponent<PowerupManager>().GetPowerUp(powerup);
+            }
         }
     }
 }

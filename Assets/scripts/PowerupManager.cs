@@ -89,6 +89,7 @@ public class PowerupManager : MonoBehaviour
                     GameObject ball = GameObject.FindGameObjectsWithTag("Ball")[0]; //there should only be one
                     GetPowerUp(ball.GetComponent<ProjectileBehaviour>().powerup);
                     Destroy(ball);
+                    powerup = Powerups.None;
                     animator.SetBool("isRed", false);
                     //does not set powerup because then recall wouldnt give palyer ball powerup
                     break;
@@ -153,6 +154,7 @@ public class PowerupManager : MonoBehaviour
                 animator.SetBool("isRed", true);
                 break;
         }
+        
 
 
     }

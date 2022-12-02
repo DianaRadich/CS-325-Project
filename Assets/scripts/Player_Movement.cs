@@ -45,6 +45,7 @@ public class Player_Movement : MonoBehaviour
         if(Input.GetButtonDown("Fire1") && hasBall == true)
         {
             hasBall = false;
+            ballPrefab.GetComponent<ProjectileBehaviour>().hasBall = false;
             launchOffset.gameObject.SetActive(false);
             Shoot();
         }
@@ -73,9 +74,12 @@ public class Player_Movement : MonoBehaviour
     }
 
     public void PickupBall(){
-        hasBall = true;
-        launchOffset.gameObject.SetActive(true);
-      
+        if (hasBall == false)
+        {
+            hasBall = true;
+            ballPrefab.GetComponent<ProjectileBehaviour>().hasBall = true;
+            launchOffset.gameObject.SetActive(true);
+        }
     }
     
     
