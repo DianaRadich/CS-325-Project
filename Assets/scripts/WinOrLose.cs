@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class WinOrLose : MonoBehaviour
 {
     private bool gameEnded = false;
+    public GameObject WinPanel;
 
     //public AudioSource audioSource;
     //public AudioClip fanfare;
@@ -15,7 +16,8 @@ public class WinOrLose : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        WinPanel = GameObject.Find("Win Panel");
+        WinPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,7 +37,9 @@ public class WinOrLose : MonoBehaviour
             //audioSource.PlayOneShot(fanfare);
 
             gameEnded=true;
-            SceneManager.LoadScene("Menu");
+            //SceneManager.LoadScene("Menu");
+            
+            WinPanel.SetActive(true);
         }
     }
 
