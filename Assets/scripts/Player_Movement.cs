@@ -78,6 +78,8 @@ public class Player_Movement : MonoBehaviour
         {
             hasBall = true;
             ballPrefab.GetComponent<ProjectileBehaviour>().hasBall = true;
+            GameObject ball = GameObject.FindGameObjectsWithTag("Ball")[0]; //there should only be one
+            gameObject.GetComponent<CoinInventory>().StealCoins(ball.GetComponent<CoinInventory>());
             launchOffset.gameObject.SetActive(true);
         }
     }

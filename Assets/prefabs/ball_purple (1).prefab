@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 496007573523472895}
   - component: {fileID: 496007573523472894}
   - component: {fileID: 496007573523472890}
+  - component: {fileID: 5197819950880675906}
   m_Layer: 0
   m_Name: ball_purple (1)
   m_TagString: Ball
@@ -138,3 +139,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4.7
   powerup: 0
+  hasBall: 1
+--- !u!114 &5197819950880675906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496007573523472893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e81ad338d51d64e8baac9ca3fed1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCoinCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

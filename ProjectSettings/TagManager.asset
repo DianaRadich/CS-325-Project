@@ -12,6 +12,7 @@ TagManager:
   - Flyer
   - Undefined
   - Ball
+  - BallCoinText
   layers:
   - Default
   - TransparentFX
