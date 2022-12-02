@@ -133,7 +133,7 @@ MonoBehaviour:
   horizontalMove: 1
   rb: {fileID: 7871623329930229788}
   cam: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 335084456}
   projectile: {fileID: 496007573523472890, guid: e1892a0b9a0942a4dba9d3a485988779, type: 3}
   launchOffset: {fileID: 7871623330469925140}
   ballPrefab: {fileID: 496007573523472893, guid: e1892a0b9a0942a4dba9d3a485988779, type: 3}
@@ -156,7 +156,9 @@ MonoBehaviour:
   rb2D: {fileID: 7871623329930229788}
   jumpForce: 1750
   dashDistance: 5
+  animator: {fileID: 335084456}
   shieldSpawner: {fileID: 7871623331298259461}
+  Power: {fileID: 0}
 --- !u!1 &7871623330469925141
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7871623330469925140}
   - component: {fileID: 7871623330469925143}
+  - component: {fileID: 335084456}
   m_Layer: 0
   m_Name: ball_purple
   m_TagString: Untagged
@@ -241,6 +244,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &335084456
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7871623330469925141}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e8f4cf4f27662a846add36ed242ec3ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7871623331030975803
 GameObject:
   m_ObjectHideFlags: 0
