@@ -41,6 +41,7 @@ public class ProjectileBehaviour : MonoBehaviour
         }
         if(!hasBall && (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Flyer")) )
         {
+            SoundManager.PlayExplosion();
             //AudioClip.PlayClipAtPoint(audioClip,position,1f);
             Destroy(collision.collider.gameObject);
         }

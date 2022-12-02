@@ -38,7 +38,8 @@ public class WinOrLose : MonoBehaviour
 
             gameEnded=true;
             //SceneManager.LoadScene("Menu");
-            
+
+            SoundManager.PlayGoal();
             WinPanel.SetActive(true);
         }
     }
