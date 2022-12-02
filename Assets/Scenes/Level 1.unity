@@ -333,10 +333,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1483956614567283511, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
-      propertyPath: m_Volume
-      value: 0.095
-      objectReference: {fileID: 0}
     - target: {fileID: 7871623329930229779, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
       propertyPath: Power
       value: 
