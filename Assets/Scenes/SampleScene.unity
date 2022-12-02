@@ -187,6 +187,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 969812962, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
+      propertyPath: OnCoinCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1260372030}
     - target: {fileID: 7871623329930229779, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
       propertyPath: Power
       value: 
@@ -427,38 +431,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f69074359b21c784e97accf6c10205c0, type: 3}
---- !u!1 &969812961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7871623329930229786, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
-  m_PrefabInstance: {fileID: 457154088}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &969812962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969812961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e81ad338d51d64e8baac9ca3fed1f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnCoinCollected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1260372030}
-        m_TargetAssemblyTypeName: CoinUI, Assembly-CSharp
-        m_MethodName: UpdateCoinText
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1006351280
 PrefabInstance:
   m_ObjectHideFlags: 0
