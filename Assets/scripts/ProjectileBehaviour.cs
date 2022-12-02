@@ -61,15 +61,15 @@ public class ProjectileBehaviour : MonoBehaviour
                 Destroy(hitInfo.gameObject, 0.1f);
                 FindObjectOfType<WinLose>().Win();
             }
-            if (hitInfo.CompareTag("BlackHole") || hitInfo.CompareTag("Spike"))
-            {
-                Destroy(gameObject);
-                FindObjectOfType<WinOrLose>().LoseLevel();
-            }
             if (hitInfo.CompareTag("Player"))
             {
                 hitInfo.GetComponent<PowerupManager>().GetPowerUp(powerup);
             }
+        }
+        if (hitInfo.CompareTag("BlackHole") || hitInfo.CompareTag("Spike"))
+        {
+            Destroy(gameObject);
+            FindObjectOfType<WinOrLose>().LoseLevel();
         }
     }
 }
