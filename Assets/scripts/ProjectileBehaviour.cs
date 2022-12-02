@@ -6,6 +6,7 @@ public class ProjectileBehaviour : MonoBehaviour
     public float speed = 4.7f;
     public PowerupManager.Powerups powerup = PowerupManager.Powerups.None;
     public bool hasBall = true;
+    //public AudioSource audioSource;
 
     // Update is called once per frame
     void Update()
@@ -40,6 +41,7 @@ public class ProjectileBehaviour : MonoBehaviour
         }
         if(!hasBall && (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Flyer")) )
         {
+            //AudioClip.PlayClipAtPoint(audioClip,position,1f);
             Destroy(collision.collider.gameObject);
         }
     }

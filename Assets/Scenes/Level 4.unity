@@ -279,18 +279,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7871623329930229776, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 335084456}
     - target: {fileID: 7871623329930229779, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
       propertyPath: Power
       value: 
       objectReference: {fileID: 251334408}
-    - target: {fileID: 7871623329930229779, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 335084456}
     - target: {fileID: 7871623332011554668, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
       propertyPath: m_Name
       value: PlayerParent
@@ -341,31 +333,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
---- !u!1 &335084455 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7871623330469925141, guid: f700a36d8f99c8942a63e7bfd0e60014, type: 3}
-  m_PrefabInstance: {fileID: 335084454}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &335084456
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 335084455}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e8f4cf4f27662a846add36ed242ec3ba, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &374081084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2212,7 +2179,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1260372027, guid: 11e1d2e0c6afb83428c7292d1c90ed95, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1230072102091784472, guid: 11e1d2e0c6afb83428c7292d1c90ed95, type: 3}
       propertyPath: m_Name
@@ -2368,10 +2335,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8497784121066167762, guid: 536f30b4b949c444d8e37c60751a8275, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.34
-      objectReference: {fileID: 0}
     - target: {fileID: 8497784122488493032, guid: 536f30b4b949c444d8e37c60751a8275, type: 3}
       propertyPath: m_RootOrder
       value: 2
